@@ -1,0 +1,68 @@
+# depslib dependency file v1.0
+1684363490 source:d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\main.c
+	"funciones.h"
+
+1684363120 .h"
+
+1684363510 d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1684363141 
+
+1684362919 source:d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\funciones.c
+	"funciones.h"
+	"TDA_pila.h"
+
+1684362919 h"
+
+1684363484 source:d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\tda_cola.c
+	"funciones.h"
+
+1684362667 d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\tda_cola.h
+	<stdio.h>
+	<stdlib.h>
+
+1684363120 source:d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\tda_pila.c
+	"funciones.h"
+
+1684363141 d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\tda_pila.h
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+
+1684365390 source:/home/manuel/Ayed/13Entregable (1)/13[Entregable]/funciones.c
+	"funciones.h"
+
+1684363512 /home/manuel/Ayed/13Entregable (1)/13[Entregable]/funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1684363492 source:/home/manuel/Ayed/13Entregable (1)/13[Entregable]/main.c
+	"funciones.h"
+
+1684363486 source:/home/manuel/Ayed/13Entregable (1)/13[Entregable]/TDA_cola.c
+	"funciones.h"
+
+1684363122 source:/home/manuel/Ayed/13Entregable (1)/13[Entregable]/TDA_pila.c
+	"funciones.h"
+
+1684441398 source:/home/manuel/Ayed/13Entregable/13[Entregable]/funciones.c
+	"funciones.h"
+
+1684363512 /home/manuel/Ayed/13Entregable/13[Entregable]/funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1684363492 source:/home/manuel/Ayed/13Entregable/13[Entregable]/main.c
+	"funciones.h"
+
+1684363486 source:/home/manuel/Ayed/13Entregable/13[Entregable]/TDA_cola.c
+	"funciones.h"
+
+1684363122 source:/home/manuel/Ayed/13Entregable/13[Entregable]/TDA_pila.c
+	"funciones.h"
+
