@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1684357710 source:d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\main.c
+	"funciones.h"
+
+1684358184 d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\funciones.h
+	<stdio.h>
+	<stdlib.h>
+
+1684358184 source:d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\funciones.c
+	"funciones.h"
+
+1684358756 source:d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\tda_cola.c
+	"TDA_cola.h"
+
+1684358747 d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\tda_cola.h
+	<stdio.h>
+	<stdlib.h>
+
+1684358927 source:d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\tda_pila.c
+	"TDA_pila.h"
+
+1684358747 d:\fi\_tercer_anio\primer_cuatrimestre\algoritmos_y_estructura_de_datos\unidad_5\13[entregable]\tda_pila.h
+	<stdio.h>
+	<stdlib.h>
+
+1685407305 source:d:\facultad\algoritmos\13[entregable]\funciones.c
+	"funciones.h"
+
+1685407274 d:\facultad\algoritmos\13[entregable]\funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1685407283 source:d:\facultad\algoritmos\13[entregable]\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"funciones.h"
+
+1685403738 source:d:\facultad\algoritmos\13[entregable]\tda_cola.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+
+1684358748 d:\facultad\algoritmos\13[entregable]\tda_cola.h
+	<stdio.h>
+	<stdlib.h>
+
+1685390758 source:d:\facultad\algoritmos\13[entregable]\tda_pila.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+
+1685377612 d:\facultad\algoritmos\13[entregable]\tda_pila.h
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1685391005 source:d:\facultad\algoritmos\13[entregable]\tda_lista.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1685378364 d:\facultad\algoritmos\13[entregable]\tda_lista.h
+	"TDA_pila.h"
+
+1685405715 source:d:\facultad\algoritmos\13[entregable]\tda_basicos.c
+	"funciones.h"
+
