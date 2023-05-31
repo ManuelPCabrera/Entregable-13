@@ -1,135 +1,73 @@
 #include "funciones.h"
 
-queue* queue_copy (queue* q)
-{
-    queue* aux = queue_new(queue_getmaxsize(q));
-    while (!queue_isempty(q))
-    {
-        enqueue(aux, dequeue(q));
-    }
+#include <stdio.h>
+#include <stdlib.h>
 
-    queue* result = queue_new(queue_getmaxsize(aux));
-    while (!queue_isempty(aux))
-    {
-        enqueue(q, peek(aux));
-        enqueue(result, dequeue(aux));
-    }
-    queue_free(aux);
-    return result;
-}
 
-queue *queue_new(int maxsize)
+
+queue* queue_new(int maxsize)
 {
     queue* q = (queue*)malloc(sizeof(queue));
-
-    q->head = NULL;
-    q->tail = NULL;
+    q->a = (t_elems*)malloc(sizeof(t_elems)*maxsize);
+    q->head = 0;
+    q->tail = 0;
     q->maxsize = maxsize;
     q->count = 0;
-
     return q;
 }
 
-queue_node *node_new_queue(t_elem value)
+void queue_free (queue* q)
 {
-    queue_node *nodo = (queue_node*)malloc(sizeof(queue_node));
-    nodo->value = value;
-    nodo->next = NULL;
-
-    return(nodo);
-}
-
-void node_free_queue(queue_node *nodo)
-{
-    ///nodo->value = NULL;
-    nodo->next = NULL;
-    free(nodo);
-}
-
-void queue_free(queue* q)
-{
-    while(q->head)
-    {
-        dequeue(q);
-    }
+    free(q->a);
     free(q);
 }
 
-int queue_getsize(queue* q)
-{
-    return (q->count);
+int queue_getmaxsize(queue* q){
+    return q->maxsize;
 }
 
-int queue_getmaxsize(queue* q)
-{
-    return (q->maxsize);
+int queue_getsize(queue* q){
+    return q->count;
 }
 
-int queue_isfull(queue* q)
-{
-    if(q->count == q->maxsize)
-    {
-        return 1;
-    }
-    return 0;
+int queue_isfull (queue* q){
+    //return (q->count == q->maxsize)?1:0;
+    return q->count == q->maxsize;
 }
 
-int queue_isempty(queue* q)
-{
-    if(q->count == 0)
-    {
-        return 1;
-    }
-    return 0;
+int queue_isempty (queue* q){
+    //return (q->count == 0)?1:0;
+    return q->count == 0;
 }
 
-void enqueue(queue* q, t_elem elem)
-{
-    queue_node *nodo = node_new_queue(elem);
+void enqueue (queue* q, t_elems elem){
+    if (queue_isfull(q)){
+        printf("Queue overflow\n");
+        exit(1);
+    }
 
-    if(!q->head)
-    {
-        q->head = nodo;
-        q->tail = nodo;
-        q->count++;
-    }
-    else
-    {
-        q->tail->next = nodo;
-        q->tail = nodo;
-        q->count++;
-    }
+    q->a[q->tail] = elem;
+    q->tail = (q->tail+1)%(q->maxsize);
+    q->count++;
 }
 
-t_elem dequeue(queue* q)
-{
-    if(q->head)
-    {
-        t_elem aux = q->head->value;
+t_elems dequeue (queue* q){
 
-        queue_node* eliminado = q->head;
-        q->head = q->head->next;
-        node_free_queue(eliminado);
-
-        return aux;
+    if (queue_isempty(q)){
+        printf("Queue underflow\n");
+        exit(1);
     }
 
-    if(!q->head)
-    {
-        q->tail = NULL;
-    }
-
-    return ;
+    t_elems result = (t_elems) q->a[q->head];
+    q->head = (q->head+1)%(q->maxsize);
+    q->count--;
+    return result;
 }
 
-t_elem peek(queue* q)
-{
-    if(q->head)
-    {
-        return (q->head->value);
+t_elems peek (queue* q){
+    if (queue_isempty(q)){
+        printf("Queue underflow\n");
+        exit(1);
     }
-    else
-    {
-        return ;
-    }
+    return q->a[q->head];
 }

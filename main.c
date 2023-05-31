@@ -3,13 +3,28 @@
 #include <time.h>
 #include "funciones.h"
 
+
 int main()
 {
-    llenar();
+    int random = rand() % 15;
+    stack* pila = NULL;
+    list* lista = NULL;
+   // queue* cola = NULL;
+   // btn* arbol = NULL;
 
+    lista = list_new(19);
+    
 
-    printf("ok   !!!!!!!!!!!!!");
+    for (int i = 0; i < random; i++)
+    {
+          pila = llenar_dia();
+          lista = cargar_list(pila,i,lista);
+    }
 
-    printf("\n\n\n\n\n");
+    printf("%d",lista->head->value.s->temperature);
+    //arbol = cargar_btn(arbol,lista);
+    //cola=cargar_queue(lista);
+
+    printf("\n\n\n");
     return 0;
 }

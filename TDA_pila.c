@@ -1,141 +1,68 @@
 #include "funciones.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-stack* stack_copy(stack* s)
-{
-    stack* aux = stack_new(stack_getmaxsize(s));
-    while (!stack_isempty(s))
-    {
-        stack_push(aux, stack_pop(s));
-    }
-
-    stack* result = stack_new(stack_getmaxsize(s));
-    while (!stack_isempty(aux))
-    {
-        stack_push(s,top(aux));
-        stack_push(result, stack_pop(aux));
-    }
-
-    return result;
+stack* stack_new(int maxsize){
+    stack* s = (stack*)malloc(sizeof(stack));
+    s->s = (t_elems*)malloc(sizeof(t_elems)*maxsize);
+    s->maxsize = maxsize;
+    s->top = -1;
+    return s;
 }
 
-stack *stack_new(int maxsize)
-{
-    stack *pila = (stack*)malloc(sizeof(stack));
-    if(pila != NULL)
-    {
-        pila->head = NULL;
-        pila->count = 0;
-        pila->maxsize = maxsize;
-    }
-    return pila;
-}
-
-stack_node *node_new_stack(t_elem value)
-{
-    stack_node *nodo = (stack_node*)malloc(sizeof(stack_node));
-    nodo->value = value;
-    nodo->next = NULL;
-
-    return(nodo);
-}
-
-void node_free_stack(stack_node *head)
-{
-    stack_node *aux = NULL;
-    while(head != NULL)
-    {
-        aux = head->next;
-        free(head);
-        head = aux;
-    }
-}
-
-void stack_free(stack* s)
-{
-    node_free_stack(s->head);
+void stack_free(stack* s){
+    free(s->s);
     free(s);
 }
 
-int stack_push(stack* pila, t_elem elem)
-{
-    stack_node *nodo = node_new_stack(elem);
-    int aux = 0;
-
-    if(nodo != NULL)
-    {
-        nodo->next = pila->head;
-        pila->head = nodo;
-        pila->count++;
-        aux++;
-    }
-    return (aux);
+int stack_getsize(stack* s){
+    return s->top+1;
 }
 
-t_elem stack_pop(stack* pila)
-{
-    if(pila->head != NULL)
-    {
-        t_elem aux = pila->head->value;
-
-        stack_node *eliminar = pila->head;
-        pila->head = pila->head->next;
-        free(eliminar);
-        pila->count--;
-
-        return(aux);
-    }
-
-    return;
+int stack_getmaxsize(stack* s){
+    return s->maxsize;
 }
 
-t_elem top(stack* pila)
-{
-    if(pila->head == NULL)
-    {
-        return;
+void push(stack* s, t_elems elem){
+    if(s->top == s->maxsize-1){
+        printf("Stack overflow\n");
+        exit(1);
     }
-    else
-    {
-        return(pila->head->value);
-    }
+    s->top++;
+    s->s[s->top] = elem;
 }
 
-int stack_getsize(stack* pila)
-{
-    return(pila->count);
-}
-
-int stack_getmaxsize(stack* pila)
-{
-    return(pila->maxsize);
-}
-
-void stack_destroy(stack* pila, void elem_free(t_elem))
-{
-    while(pila->head != NULL)
-    {
-        stack_pop(pila);
+t_elems pop(stack* s){
+    if(s->top == -1){
+        printf("Stack underflow\n");
+        exit(1);
     }
-    free(pila);
+    t_elems elem = s->s[s->top];
+    s->top--;
+    return elem;
 }
 
-int stack_isempty(stack* pila)
-{
-    if(pila->count == 0)
-    {
-        return (1);
+t_elems top(stack* s){
+    if(s->top == -1){
+        printf("Stack underflow\n");
+        exit(1);
     }
-
-    return(0);
+    return s->s[s->top];
 }
 
-int stack_isfull(stack* pila)
-{
-    if(pila->count == pila->maxsize)
-    {
-        return (1);
-    }
+int stack_isempty(stack* s){
+    //return (s->top == -1)?1:0;
+    return s->top == -1;
+}
 
-    return(0);
+int stack_isfull(stack* s){
+    //return (s->top == s->maxsize-1)?1:0;
+    return s->top == (s->maxsize-1);
+}
+
+void stack_destroy(stack* s, void elem_free(t_elems)){
+    while (!stack_isempty(s)){
+        elem_free(pop(s));
+    }
 }
 
