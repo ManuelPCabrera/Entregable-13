@@ -32,7 +32,7 @@ list* cargar_list(stack *pila, int i,list* lista)
 /*
 queue* cargar_queue(list* lista)
 {
-     queue* cola = queue_new((lista->maxsize)*(1441));
+     
 
     list_node *aux = lista->head;
     while (aux != NULL)
@@ -63,8 +63,9 @@ cola->
 btn* cargar_btn(btn *arbol ,list* lista)
 {
 
- list_node *aux = lista->head;
+    list_node *aux = lista->head;
     stack* pila= &(aux->value);
+    arbol->value = pop(pila);
 
  //btn_new(pop(pila));
 
@@ -72,13 +73,41 @@ btn* cargar_btn(btn *arbol ,list* lista)
         while (!stack_isempty(pila))
         {
             btn *new_node = btn_new(pop(pila));
-            
-            //reading medida = pop(pila);
-            //sbt_insert_node(&arbol,)
+            sbt_insert_node(&arbol,new_node,cmp(arbol->value,new_node->value));
+            //reading medida = pop(pila); 
         }
-        
+    aux = aux->next;
+    }
+return arbol;
+}
 
+queue* cargar_queue(btn *node,queue* cola)
+{
+    if (!node) return;
+    
+    cargar_queue(node->left, cola);
+    
+    enqueue(cola,node->value);
+
+    cargar_queue(node->right, cola);
+
+    return cola;
+}
+
+
+void print_queue(queue* cola) {
+    if (cola == NULL || cola->count == 0) {
+        printf("La cola está vacía.\n");
+        return;
     }
 
+    int i, j;
+    j = cola->head;
 
+    for (i = 0; i < cola->count; i++) {
+        printf("%d ", cola->a[j]);
+        j = (j + 1) % cola->maxsize;
+    }
+
+    printf("\n");
 }

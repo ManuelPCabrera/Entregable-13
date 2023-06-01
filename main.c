@@ -9,8 +9,8 @@ int main()
     int random = rand() % 15;
     stack* pila = NULL;
     list* lista = NULL;
-   // queue* cola = NULL;
-   // btn* arbol = NULL;
+    queue* cola = NULL;
+    btn* arbol = NULL;
 
     lista = list_new(19);
     
@@ -22,9 +22,12 @@ int main()
     }
 
     printf("%d",lista->head->value.s->temperature);
-    //arbol = cargar_btn(arbol,lista);
-    //cola=cargar_queue(lista);
+    arbol = cargar_btn(arbol,lista);
+   // cola = queue_new((lista->maxsize)*(1441));
 
+   // cola=cargar_queue(arbol,cola);
+
+    print_queue(cola);
     printf("\n\n\n");
     return 0;
 }

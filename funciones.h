@@ -114,7 +114,7 @@ void btn_intToStr(btn* node, char* str);
 int _btn_print(btn *tree, int is_left, int offset, int depth, char s[20][255], void toStr (btn*, char*));
 void btn_print(btn *tree, void toStr (btn*, char*));
 //////////////CHEKEAR LOS (;)
-
+//void btn_inorder(btn *node);
 
 //////////////////////////TDA_basicos///////////////////////////
 
@@ -126,8 +126,9 @@ int obtener_minuto (stack* pila);
 stack *llenar_dia();
 list* cargar_list(stack *pila, int i,list* lista);
 btn* cargar_btn(btn *arbol ,list* lista);
-//queue* cargar_queue(list* lista);
+//queue* cargar_queue(btn* node,queue* cola);
 //queue* sortbyminute_queue(queue* cola);
+void print_queue(queue* cola);
 
 
 
